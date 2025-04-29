@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>🎬 Movie Finder App</h1>
+        <p>Created by <strong>Maryam Fatima</strong> | CMS ID: 1596-2024</p>
+    </header>
+
+    <!-- Search Form -->
+    <form method="POST">
+        <input type="text" name="title" placeholder="Enter movie title..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Error Message -->
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <!-- Movie Result -->
+    {% if movie %}
+        <div class="movie-container">
+            <h2>{{ movie.Title }} ({{ movie.Year }})</h2>
+            <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+            <p><strong>Director:</strong> {{ movie.Director }}</p>
+            <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+            <img src="{{ movie.Poster }}" alt="Poster">
+        </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 All rights reserved | Maryam Fatima</p>
+    </footer>
+
+</body>
+</html>
